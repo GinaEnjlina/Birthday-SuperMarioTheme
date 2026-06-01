@@ -5,7 +5,7 @@ import {defineConfig} from 'vite';
 
 export default defineConfig(() => {
   return {
-    base: './',
+    base: '/Birthday-SuperMarioTheme/',
     plugins: [react(), tailwindcss()],
     resolve: {
       alias: {
