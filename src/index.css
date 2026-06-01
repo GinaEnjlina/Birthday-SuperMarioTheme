@@ -1,0 +1,163 @@
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&family=Press+Start+2P&family=VT323&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-press-start: "Press Start 2P", cursive, system-ui;
+  --font-pixelify: "Pixelify Sans", sans-serif, system-ui;
+  --font-vt323: "VT323", monospace, system-ui;
+  
+  --color-mario-sky: #3b82f6; /* More vibrant rich blue */
+  --color-mario-red: #e11d48; /* Saturated deep rose-red */
+  --color-mario-yellow: #facc15; /* Saturated sunny yellow */
+  --color-mario-green: #10b981; /* Rich emerald green */
+  --color-mario-brown: #7c2d12; /* Rich brown clay block */
+  
+  --color-vibrant-magenta: #ec4899;
+  --color-vibrant-indigo: #6366f1;
+  --color-vibrant-lime: #84cc16;
+  --color-vibrant-orange: #f97316;
+  --color-vibrant-violet: #8b5cf6;
+}
+
+@layer utilities {
+  /* Vibrant "Pop-Art" retro arcade styling rules */
+  .vibrant-board {
+    border: 10px solid #000000;
+    box-shadow: 12px 12px 0px rgba(0, 0, 0, 1);
+    background-color: #ffffff;
+  }
+
+  .vibrant-arcade-inner {
+    background-color: #121214;
+    border: 4px solid #000000;
+    box-shadow: inset 0px 0px 20px rgba(0,0,0,0.8);
+  }
+
+  /* Pixel art style borders */
+  .pixel-box-retro {
+    border: 4px solid #000000;
+    box-shadow: 6px 6px 0px #000000;
+  }
+  
+  .pixel-box-retro-sm {
+    border: 3px solid #000000;
+    box-shadow: 4px 4px 0px #000000;
+  }
+  
+  .pixel-box-red {
+    border: 4px solid #000000;
+    box-shadow: 6px 6px 0px #e11d48;
+  }
+
+  .pixel-box-yellow {
+    border: 4px solid #000;
+    box-shadow: 6px 6px 0px #facc15;
+  }
+
+  .pixel-box-green {
+    border: 4px solid #000;
+    box-shadow: 6px 6px 0px #10b981;
+  }
+
+  .pixel-box-blue {
+    border: 4px solid #000;
+    box-shadow: 6px 6px 0px #3b82f6;
+  }
+
+  /* Scanlines and screen effects for retro arcade vibe */
+  .retro-screen {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .retro-screen::after {
+    content: " ";
+    display: block;
+    position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.05), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.05));
+    background-size: 100% 4px, 6px 100%;
+    z-index: 40;
+    pointer-events: none;
+  }
+
+  /* Moving background clouds */
+  @keyframes floatCloud {
+    0% { transform: translateX(110%); }
+    100% { transform: translateX(-110%); }
+  }
+
+  .animate-cloud-slow {
+    animation: floatCloud 22s linear infinite;
+  }
+
+  .animate-cloud-fast {
+    animation: floatCloud 12s linear infinite;
+  }
+
+  /* Coin spinning animation */
+  @keyframes coinSpin {
+    0%, 100% { transform: scaleX(1); }
+    50% { transform: scaleX(0.15); }
+  }
+
+  .animate-coin-spin {
+    animation: coinSpin 0.7s steps(8) infinite;
+  }
+
+  /* Jumping character animation */
+  @keyframes miniJump {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
+  .animate-mini-jump {
+    animation: miniJump 0.35s ease-out;
+  }
+  
+  /* Walking bob animation */
+  @keyframes walkingBob {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+  }
+  
+  .animate-walk {
+    animation: walkingBob 0.25s infinite;
+  }
+
+  /* Text blinking effect */
+  @keyframes textBlink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+
+  .animate-pixel-blink {
+    animation: textBlink 1s infinite steps(2);
+  }
+  
+  /* Firework particles */
+  @keyframes particleFly {
+    0% { transform: translate(0, 0) scale(1.1); opacity: 1; }
+    100% { transform: translate(var(--x), var(--y)) scale(0.1); opacity: 0; }
+  }
+  
+  .firework-particle {
+    animation: particleFly 0.9s cubic-bezier(0.1, 0.8, 0.3, 1) forwards;
+  }
+}
+
+/* Custom scrollbars with vibrant styling */
+::-webkit-scrollbar {
+  width: 12px;
+}
+::-webkit-scrollbar-track {
+  background: #111;
+  border-left: 3px solid #000;
+}
+::-webkit-scrollbar-thumb {
+  background: #facc15;
+  border: 3px solid #000;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #e11d48;
+}

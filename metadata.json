@@ -1,0 +1,8 @@
+{
+  "name": "Super Nono Bros",
+  "description": "An interactive 8-bit retro Mario-style birthday adventure quest for Nono's 20th Birthday!",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
